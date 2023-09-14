@@ -5,11 +5,12 @@ import numpy as np
 import tensorflow as tf
 
 import nltk
+nltk.download('all')
 from nltk.stem import WordNetLemmatizer
 
 lemmatizer = WordNetLemmatizer()
 
-intents = json.loads(open('C:/Users/Nikita/Downloads/Chatbot/Chatbot/Chatbot/intents.json').read())
+intents = json.loads(open('./intents.json').read())
 
 words = []
 classes = []
