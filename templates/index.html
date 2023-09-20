@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chat-container">
+        <div id="chat-output"></div>
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-button">Send</button>
+    </div>
+
+    <script>
+        // JavaScript code to handle the chat interaction
+        document.addEventListener('DOMContentLoaded', function () {
+            const chatOutput = document.getElementById('chat-output');
+            const userInput = document.getElementById('user-input');
+            const sendButton = document.getElementById('send-button');
+
+            sendButton.addEventListener('click', function () {
+                const userMessage = userInput.value.trim();
+                if (userMessage !== '') {
+                    chatOutput.innerHTML += '<p><strong>You:</strong> ' + userMessage + '</p>';
+                    userInput.value = '';
+
+                    // Send the user message to the server and get the bot's response
+                    fetch('/chat', {
+                        method: 'POST',
+                        body: new URLSearchParams({ user_message: userMessage }),
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    })
+                        .then(response => response.text())
+                        .then(botResponse => {
+                            chatOutput.innerHTML += '<p><strong>Bot:</strong> ' + botResponse + '</p>';
+                        });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
