@@ -6,6 +6,9 @@ import nltk
 
 from nltk.stem import WordNetLemmatizer
 from keras.models import load_model
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
 
 lemmatizer = WordNetLemmatizer()
 intents = json.loads(open('./intents.json').read())
@@ -52,9 +55,23 @@ def get_response(intents_list, intents_json):
 
 print("GO! Bot is running!")
 
-while True:
-    message = input("")
-    ints = predict_class (message)
-    res = get_response (ints, intents)
-    print (res)
+# while True:
+#     message = input("")
+#     ints = predict_class (message)
+#     res = get_response (ints, intents)
+#     print (res)
     
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    user_message = request.form.get('user_message')
+    ints = predict_class (user_message)
+    bot_response = get_response (ints, intents)
+    return bot_response
+
+if __name__ == '__main__':
+    app.run(debug=True)

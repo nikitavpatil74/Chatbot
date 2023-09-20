@@ -1,22 +1,155 @@
-{"intents": [
-        {"tag": "greeting",
-         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
-         "responses": ["Hello", "Good to see you again", "Hi there, how can I help?"],
-         "context": [""]
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["Hi there", "How are you", "Is anyone there?", "Hey", "Hola", "Hello", "Good day"],
+            "responses": ["Hello", "Good to see you again", "Hi there, how can I help?"],
+            "context": [""]
         },
-        {"tag": "goodbye",
-         "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
-         "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
-         "context": [""]
+        {
+            "tag": "goodbye",
+            "patterns": ["Goodbye", "Bye", "See you later", "Farewell"],
+            "responses": ["Goodbye!", "Have a great day!", "Take care!"],
+            "context": [""]
         },
-        {"tag": "thanks",
-         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
-         "responses": ["My pleasure", "You're Welcome"],
-         "context": [""]
+        {
+            "tag": "thanks",
+            "patterns": ["Thanks", "Thank you", "Thanks a lot"],
+            "responses": ["You're welcome!", "No problem, happy to help!", "Anytime!"],
+            "context": [""]
         },
-        {"tag": "query",
-         "patterns": ["What is Simplilearn?"],
-         "responses": ["Simplilearn is the popular online Bootcamp & online courses learning platform "],
-         "context": [""]
-        } 
-    ]}
+        {
+            "tag": "age",
+            "patterns": ["How old are you?", "What's your age?"],
+            "responses": ["I'm just a computer program, so I don't have an age.", "I don't age, I'm here to assist you!"],
+            "context": [""]
+        },
+        {
+            "tag": "name",
+            "patterns": ["What's your name?", "Do you have a name?", "Are you a bot?"],
+            "responses": ["I'm a chatbot designed to assist you, but I don't have a personal name.", "You can call me ChatGPT."],
+            "context": [""]
+        },
+        {
+            "tag": "restaurant_recommendation",
+            "patterns": ["Can you recommend a good restaurant?", "I'm hungry, where should I eat?", "Restaurant suggestion"],
+            "responses": ["Sure, I can help with that. What type of cuisine are you in the mood for?", "Of course! What's your preferred cuisine?"],
+            "context": [""]
+        },
+        {
+            "tag": "restaurant_cuisine",
+            "patterns": ["I want Italian food", "Mexican cuisine", "Chinese restaurant"],
+            "responses": ["Great choice! Here are some popular {{cuisine}} restaurants in your area:", "I recommend trying {{cuisine}} at {{restaurant}}."],
+            "context": ["restaurant_recommendation"]
+        },
+        {
+            "tag": "restaurant_location",
+            "patterns": ["Near me", "In downtown", "Closest restaurants"],
+            "responses": ["I found some {{cuisine}} restaurants near you. Here are a few options:", "Here are some restaurants in the downtown area: {{restaurants}}."],
+            "context": ["restaurant_recommendation"]
+        },
+        {
+            "tag": "joke",
+            "patterns": ["Tell me a joke", "Make me laugh", "Joke of the day"],
+            "responses": ["Why did the scarecrow win an award? Because he was outstanding in his field!", "Here's a classic one: Knock, knock. Who's there? Boo. Boo who? Don't cry, it's just a joke!"],
+            "context": [""]
+        },
+        {
+            "tag": "music_recommendation",
+            "patterns": ["Recommend some music", "What music should I listen to?", "Music suggestion"],
+            "responses": ["Sure, I can help with that. What genre of music are you interested in?", "Of course! What's your favorite music genre?"],
+            "context": [""]
+        },
+        {
+            "tag": "music_genre",
+            "patterns": ["I like rock", "Hip-hop music", "Classical genre"],
+            "responses": ["Great choice! Here are some popular {{genre}} artists and albums:", "I recommend listening to {{genre}} by {{artist}}."],
+            "context": ["music_recommendation"]
+        },
+        {
+            "tag": "music_mood",
+            "patterns": ["I'm feeling upbeat", "I want relaxing music", "Music for a party"],
+            "responses": ["Got it! What kind of music suits your mood: {{mood}}?", "Here's a playlist for your {{mood}} vibe: {{playlist}}."],
+            "context": ["music_recommendation"]
+        },
+        {
+            "tag": "book_recommendation",
+            "patterns": ["Can you recommend a good book?", "I need a book suggestion", "Book recommendation"],
+            "responses": ["Of course, I'd love to recommend a book. What genre are you interested in?", "Sure! What genre do you prefer for reading?"],
+            "context": [""]
+        },
+        {
+            "tag": "book_genre",
+            "patterns": ["Mystery novels", "Science fiction books", "Historical fiction"],
+            "responses": ["Excellent choice! Here are some popular {{genre}} books:", "I recommend reading {{book}} in the {{genre}} genre."],
+            "context": ["book_recommendation"]
+        },
+        {
+            "tag": "book_author",
+            "patterns": ["Books by Stephen King", "Author recommendations", "Tell me about J.K. Rowling"],
+            "responses": ["Sure! Here are some books by {{author}}:", "{{author}} is known for their work on {{book}}."],
+            "context": ["book_recommendation"]
+        },
+        {
+            "tag": "movie_recommendation",
+            "patterns": ["Can you suggest a good movie?", "I want to watch a movie, help me choose", "Movie recommendation"],
+            "responses": ["Of course, I can recommend a movie. What genre do you enjoy?", "Sure, what type of movie are you in the mood for?"],
+            "context": [""]
+        },
+        {
+            "tag": "movie_genre",
+            "patterns": ["Action films", "Comedy movies", "Science fiction films"],
+            "responses": ["Great! Here are some popular {{genre}} movies:", "I recommend watching {{movie}} in the {{genre}} genre."],
+            "context": ["movie_recommendation"]
+        },
+        {
+            "tag": "movie_director",
+            "patterns": ["Movies directed by Quentin Tarantino", "Director suggestions", "Tell me about Christopher Nolan"],
+            "responses": ["Sure! Here are some movies directed by {{director}}:", "{{director}} is known for directing {{movie}}."],
+            "context": ["movie_recommendation"]
+        },
+        {
+            "tag": "news",
+            "patterns": ["What's in the news?", "Tell me the latest headlines", "News updates"],
+            "responses": ["I'm not connected to real-time news, but you can check a news website or app for the latest updates.", "I don't have access to the latest news, but you can find it online."],
+            "context": [""]
+        },
+        {
+            "tag": "music_artist",
+            "patterns": ["Tell me about The Beatles", "Famous music artists", "Artist recommendations"],
+            "responses": ["Sure! Here's some information about {{artist}}:", "{{artist}} is known for hits like {{songs}}."],
+            "context": [""]
+        },
+        {
+            "tag": "movie_rating",
+            "patterns": ["What's the rating of Inception?", "Movie ratings", "Rating for The Dark Knight"],
+            "responses": ["I don't have access to real-time movie ratings, but you can check popular movie review websites for ratings and reviews.", "I can't provide real-time movie ratings, but you can find them on websites like Rotten Tomatoes or IMDb."],
+            "context": [""]
+        },
+        {
+            "tag": "movie_plot",
+            "patterns": ["Tell me the plot of Titanic", "Movie plot summaries", "Summary of Avatar"],
+            "responses": ["Sure! Here's a brief summary of {{movie}}:", "The plot of {{movie}} revolves around {{summary}}."],
+            "context": [""]
+        },
+        {
+            "tag": "compliment",
+            "patterns": ["You're doing a great job", "You're awesome", "I like your help"],
+            "responses": ["Thank you so much! I'm here to assist you to the best of my abilities.", "I appreciate the kind words! Helping you is my pleasure."],
+            "context": [""]
+        },
+        {
+            "tag": "insult",
+            "patterns": ["You're useless", "You're terrible", "I hate this bot"],
+            "responses": ["I'm sorry to hear that you're not satisfied. If you have any specific feedback or questions, please let me know, and I'll do my best to improve.", "I apologize if I haven't met your expectations. If you have any concerns, please feel free to share, and I'll try to assist you better."],
+            "context": [""]
+        },
+        {
+            "tag": "recommendation_query",
+            "patterns": ["Can you recommend something?", "I'm bored, suggest something", "What should I do?"],
+            "responses": ["Certainly! I can recommend books, movies, music, or answer questions. What are you in the mood for?", "Of course! I can suggest books, movies, or music based on your preferences. What interests you right now?"],
+            "context": [""]
+        }
+        
+    ]
+}
