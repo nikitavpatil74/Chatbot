@@ -125,7 +125,7 @@
             "patterns": ["Essential skills for DevOps professionals", "Continuous learning in DevOps", "Certifications for DevOps"],
             "responses": ["DevOps professionals should possess skills in areas such as automation, scripting, cloud computing, containerization, and version control. Continuous learning and staying updated with industry trends are essential. Consider pursuing certifications like AWS Certified DevOps Engineer or Docker Certified Associate to validate your skills.", "Stay competitive in the DevOps field by honing your technical skills, learning new tools, and pursuing certifications that demonstrate your expertise."],
             "context": [""]
-        }
+        },
         {
             "tag": "compliance_automation",
             "patterns": ["How can I automate compliance checks in DevOps?", "Benefits of automating compliance in DevOps", "Tools for automated compliance monitoring"],
